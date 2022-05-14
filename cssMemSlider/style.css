@@ -6,7 +6,7 @@ body {
 }
 
 .demotivator {
-  max-width: 1280px;
+  max-width: 100vh;
   max-height: 100vh;
   width: 100%;
   height: 100vh;
@@ -40,7 +40,7 @@ body {
 
 .mem-img:first-child {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   opacity: 100%;
 }
 
@@ -56,19 +56,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   border: 1px dotted green;
   border-radius: 100%;
 }
 
+.default-input-marker {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
 .input-marker {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  background: none;
   border: 1px solid white;
   border-radius: 100%;
+  transition: background-color 0.5s;
 }
 
 .comment-section {
   max-width: 80%;
+  display: flex;
 }
 
 .comment {
@@ -84,3 +94,90 @@ body {
   z-index: 0;
   opacity: 100%;
 }
+
+.tap-area:hover .input-marker {
+  background-color: rgb(199, 199, 199);
+  border: none;
+}
+
+#mem1:checked~.mem .slide-selection-area .tap-area:nth-child(1)>.input-marker {
+  background: green;
+}
+#mem2:checked~.mem .slide-selection-area .tap-area:nth-child(2)>.input-marker {
+  background: green;
+}
+#mem3:checked~.mem .slide-selection-area .tap-area:nth-child(3)>.input-marker {
+  background: green;
+}
+#mem4:checked~.mem .slide-selection-area .tap-area:nth-child(4)>.input-marker {
+  background: green;
+}
+#mem5:checked~.mem .slide-selection-area .tap-area:nth-child(5)>.input-marker {
+  background: green;
+}
+
+#mem1:checked~.mem .images .mem-img,
+#mem1:checked~.comment-section .comment {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#mem1:checked~.mem .images .mem-img:nth-child(1),
+#mem1:checked~.comment-section .comment:nth-child(1) {
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
+#mem2:checked~.mem .images .mem-img,
+#mem2:checked~.comment-section .comment {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#mem2:checked~.mem .images .mem-img:nth-child(2),
+#mem2:checked~.comment-section .comment:nth-child(2) {
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
+#mem3:checked~.mem .images .mem-img,
+#mem3:checked~.comment-section .comment {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#mem3:checked~.mem .images .mem-img:nth-child(3),
+#mem3:checked~.comment-section .comment:nth-child(3) {
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
+#mem4:checked~.mem .images .mem-img,
+#mem4:checked~.comment-section .comment {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#mem4:checked~.mem .images .mem-img:nth-child(4),
+#mem4:checked~.comment-section .comment:nth-child(4) {
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
+#mem5:checked~.mem .images .mem-img,
+#mem5:checked~.comment-section .comment {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+#mem5:checked~.mem .images .mem-img:nth-child(5),
+#mem5:checked~.comment-section .comment:nth-child(5) {
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
