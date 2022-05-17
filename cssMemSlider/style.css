@@ -19,28 +19,64 @@ body {
 
 .mem {
   position: relative;
-  width: 80%;
-  height: auto;
+  width: 70%;
+  height: 50%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   overflow: hidden;
+  border: 1px solid white;
+  background: rgba(0, 0, 0, 0.612);
 }
 
 .images {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
+
 .mem-img {
   position: absolute;
   width: 100%;
-  height: auto;
-  border: 1px solid white;
+  height: 100%;
   padding: 2px;
   box-sizing: border-box;
   z-index: 0;
   opacity: 100%;
   transform: scale(1.5);
   transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+}
+
+.mem-img:nth-child(1) {
+  background: url("./src/mems/banana.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.mem-img:nth-child(2) {
+  background: url("./src/mems/usual.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.mem-img:nth-child(3) {
+  background: url("./src/mems/null.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.mem-img:nth-child(4) {
+  background: url("./src/mems/css.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.mem-img:nth-child(5) {
+  background: url("./src/mems/feel-me-think-about-it.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .mem-img:first-child {
@@ -60,13 +96,13 @@ body {
 
 .slide-selection-area {
   display: flex;
-  align-self: flex-end;
-  margin: 20px 0;
+  /* align-self: flex-end; */
+  margin: 0;
   z-index: 10;
 }
 
 .tap-area {
-  width: 4em;
+  width: 3em;
   height: 3em;
   display: flex;
   justify-content: center;
@@ -93,20 +129,33 @@ body {
 
 .comment-section {
   max-width: 80%;
+  width: 80%;
+  height: 20vh;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .comment {
-  position: absolute;
-  opacity: 0;
-  z-index: 0;
-  font-size: 2.5em;
-  color: azure;
-  transition: all ease-in-out 1s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
 }
 
-.comment:first-child {
-  position: relative;
+.comment-item {
+  position: absolute;
+  opacity: 0;
+  max-width: 100%;
+  z-index: 0;
+  font-size: 1.5em;
+  margin: 0;
+  color: azure;
+  transition: all ease-in-out 1s;
+  text-align: center;
+}
+
+.comment-item:first-child {
   z-index: 0;
   opacity: 100%;
 }
@@ -116,19 +165,19 @@ body {
   transform: rotate(180deg);
 }
 
-#mem1:checked~.mem .slide-selection-area .tap-area:nth-child(1)>.input-marker {
+#mem1:checked~.comment-section .slide-selection-area .tap-area:nth-child(1)>.input-marker {
   background: rgb(199, 199, 199);
 }
-#mem2:checked~.mem .slide-selection-area .tap-area:nth-child(2)>.input-marker {
+#mem2:checked~.comment-section .slide-selection-area .tap-area:nth-child(2)>.input-marker {
   background: rgb(199, 199, 199);
 }
-#mem3:checked~.mem .slide-selection-area .tap-area:nth-child(3)>.input-marker {
+#mem3:checked~.comment-section .slide-selection-area .tap-area:nth-child(3)>.input-marker {
   background: rgb(199, 199, 199);
 }
-#mem4:checked~.mem .slide-selection-area .tap-area:nth-child(4)>.input-marker {
+#mem4:checked~.comment-section .slide-selection-area .tap-area:nth-child(4)>.input-marker {
   background: rgb(199, 199, 199);
 }
-#mem5:checked~.mem .slide-selection-area .tap-area:nth-child(5)>.input-marker {
+#mem5:checked~.comment-section .slide-selection-area .tap-area:nth-child(5)>.input-marker {
   background: rgb(199, 199, 199);
 }
 
@@ -192,7 +241,7 @@ body {
   transform: scale(1);
 }
 
-/* Change styles for comment with animation */
+/* Change styles for comment-item with animation */
 
 @keyframes appear {
   from {
@@ -211,77 +260,74 @@ body {
   }
 }
 
-#mem1:checked~.comment-section .comment {
+#mem1:checked~.comment-section .comment-item {
   position: absolute;
   z-index: -1;
   opacity: 0;
-  animation: disappear 1s;
+  animation: disappear 2s;
 }
-#mem1:checked~.comment-section .comment:nth-child(1) {
-  position: relative;
+#mem1:checked~.comment-section .comment-item:nth-child(1) {
   z-index: 1;
   opacity: 100%;
   animation: appear 1s;
 }
-#mem2:checked~.comment-section .comment {
+#mem2:checked~.comment-section .comment-item {
   position: absolute;
   z-index: -1;
   opacity: 0;
   animation: disappear 1s;
 }
-#mem2:checked~.comment-section .comment:nth-child(2) {
-  position: relative;
+#mem2:checked~.comment-section .comment-item:nth-child(2) {
   z-index: 1;
   opacity: 100%;
   animation: appear 1s;
 }
-#mem3:checked~.comment-section .comment {
+#mem3:checked~.comment-section .comment-item {
   position: absolute;
   z-index: -1;
   opacity: 0;
   animation: disappear 1s;
 }
-#mem3:checked~.comment-section .comment:nth-child(3) {
-  position: relative;
+#mem3:checked~.comment-section .comment-item:nth-child(3) {
   z-index: 1;
   opacity: 100%;
   animation: appear 1s;
 }
-#mem4:checked~.comment-section .comment {
+#mem4:checked~.comment-section .comment-item {
   position: absolute;
   z-index: -1;
   opacity: 0;
   animation: disappear 1s;
 }
-#mem4:checked~.comment-section .comment:nth-child(4) {
-  position: relative;
+#mem4:checked~.comment-section .comment-item:nth-child(4) {
   z-index: 1;
   opacity: 100%;
   animation: appear 1s;
 }
-#mem5:checked~.comment-section .comment {
+#mem5:checked~.comment-section .comment-item {
   position: absolute;
   z-index: -1;
   opacity: 0;
   animation: disappear 1s;
 }
-#mem5:checked~.comment-section .comment:nth-child(5) {
-  position: relative;
+#mem5:checked~.comment-section .comment-item:nth-child(5) {
   z-index: 1;
   opacity: 100%;
   animation: appear 1s;
 }
 
 /* Styles for mobile screen */
-@media (max-width: 414px) {
-  .slide-selection-area {
-    align-self: center;
+@media (max-width: 819px) {
+
+  .comment-section {
+    flex-direction: column;
+    align-items: center;
   }
   .tap-area {
     width: 2.5em;
     height: 2.5em;
   }
-  .comment {
+  .comment-item {
     font-size: 1.5em;
   }
 }
