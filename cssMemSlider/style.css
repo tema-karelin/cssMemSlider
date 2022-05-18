@@ -120,7 +120,7 @@ body {
   border: 1px solid white;
   border-radius: 30%;
   transform: rotate(45deg);
-  transition: background-color ease-out 0.5s, transform ease-in-out 0.5s;
+  transition: background-color ease-out 0.5s, transform ease-in-out 0.5s, width ease-in-out 0.05s, height ease-in-out 0.05s;
 }
 
 .comment-section {
@@ -159,6 +159,11 @@ body {
   background-color: rgba(240, 248, 255, 0.5);
   transform: rotate(180deg);
 }
+.tap-area:active .input-marker {
+  width: 1.5em;
+  height: 1.5em;
+}
+
 /* Tap elements effects */
 #mem1:checked~.comment-section .slide-selection-area .tap-area:nth-child(1)>.input-marker {
   transform: rotate(0deg);
